@@ -15,6 +15,8 @@ int is_invalid(char *input)
     i++;
   }
 
+  // check for empty string (either
+  // NULL or newline)
   if (input[i] == '\0' || input[i] == '\n')
   {
     return 1;
@@ -54,7 +56,7 @@ int main()
     // can cause buffer overflows :)
     if (fgets(raw_temp, sizeof raw_temp, stdin) == NULL)
     {
-      // Break if EOF
+      // exit if EOF
       printf("\n");
       return 0;
     }
