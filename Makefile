@@ -3,7 +3,7 @@ CFLAGS=-Wall -Werror -Iinclude
 BUILD_DIR = build
 
 .PHONY: all
-all: dirs
+all: dirs hello-world
 
 .PHONY: dirs
 dirs:
