@@ -14,7 +14,7 @@ clean:
 	rm -rf build
 
 %: $(BUILD_DIR)/common.o $(BUILD_DIR)/%.o
-	$(CC) $(CFLAGS) -o build/$@ $^
+	$(CC) $(CFLAGS) -o $(BUILD_DIR)/$@ $^
 
 $(BUILD_DIR)/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
