@@ -1,3 +1,6 @@
+CC=gcc
+CFLAGS=-Wall -Werror
+
 
 .PHONY: all
 all: dirs
@@ -10,4 +13,4 @@ dirs:
 	./build/$@
 
 build/%: src/%.c
-	gcc -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
