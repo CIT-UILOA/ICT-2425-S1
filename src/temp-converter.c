@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "common.h"
 
 int is_invalid(char *input)
 {
@@ -48,16 +49,13 @@ int main()
 
   while (true)
   {
-    printf("Enter temperature: ");
-
     // get exactly 16 bytes from stdin
     // i use fgets instead of scanf
     // because as far as i know scanf
     // can cause buffer overflows :)
-    if (fgets(raw_temp, sizeof raw_temp, stdin) == NULL)
+    if (input("Enter temperature in fahrenheit", raw_temp, sizeof raw_temp))
     {
       // exit if EOF
-      printf("\n");
       return 0;
     }
 

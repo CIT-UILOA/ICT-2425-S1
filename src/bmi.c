@@ -3,22 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "common.h"
 
 #define RAW_BUFFER_SIZE 8
 #define NAME_SIZE 32
-
-int input(char *prompt, char *output, size_t output_size)
-{
-  printf("%s: ", prompt);
-
-  if (fgets(output, output_size, stdin) == NULL)
-  {
-    printf("\n");
-    return 1;
-  }
-
-  return 0;
-}
 
 int main()
 {
