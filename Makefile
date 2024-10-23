@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-Wall -Werror
-
+CFLAGS=-Wall -Werror -Iinclude
+BUILD_DIR = build
 
 .PHONY: all
 all: dirs
@@ -9,8 +9,12 @@ all: dirs
 dirs:
 	mkdir build
 
-%: build/%
-	./build/$@
+.PHONY: clean
+clean:
+	rm -rf build
 
-build/%: src/%.c
-	$(CC) $(CFLAGS) -o $@ $<
+%: $(BUILD_DIR)/common.o $(BUILD_DIR)/%.o
+	$(CC) $(CFLAGS) -o build/$@ $^
+
+$(BUILD_DIR)/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
