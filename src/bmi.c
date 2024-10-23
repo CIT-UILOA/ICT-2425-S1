@@ -23,5 +23,5 @@ int main()
 
   bmi = weight / (height * height);
 
-  printf("Output:\n\tName: %s\tHeight: %.2f\n\tWeight: %.2f\n\tBMI: %.1f\n", name, height, weight, bmi);
+  printf("Output:\n\tName: %s\n\tHeight: %.2f\n\tWeight: %.2f\n\tBMI: %.1f\n", name, height, weight, bmi);
 }
