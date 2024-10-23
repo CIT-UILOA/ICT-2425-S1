@@ -23,19 +23,19 @@ int is_invalid(char *input)
     return 1;
   }
 
-  for (; input[i] != '\n'; i++)
+  for (; input[i] != '\0'; i++)
   {
     current = input[i];
 
     if (current == '.')
     {
       if (has_decimal)
-        return 1;
+        return i;
       has_decimal = true;
     }
     else if (!isdigit(current))
     {
-      return 1;
+      return i;
     }
   }
 
@@ -46,6 +46,7 @@ int main()
 {
   char raw_temp[16];
   double degrees_fahrenheit, degrees_celsius;
+  int invalid_char_loc;
 
   while (true)
   {
@@ -59,9 +60,12 @@ int main()
       return 0;
     }
 
-    if (is_invalid(raw_temp))
+    invalid_char_loc = is_invalid(raw_temp);
+
+    if (invalid_char_loc)
     {
-      printf("Invalid input!\n");
+      printf("Invalid input in character %d: '%c'!\n", invalid_char_loc, raw_temp[invalid_char_loc]);
+      printf("raw temperature: %s\n", raw_temp);
       continue;
     }
 
