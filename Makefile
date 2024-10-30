@@ -6,7 +6,7 @@ BUILD_DIR = build
 all: dirs hello-world
 
 .PHONY: dirs
-dirs:
+dirs: clean
 	mkdir build
 
 .PHONY: clean
