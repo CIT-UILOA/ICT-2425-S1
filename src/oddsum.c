@@ -8,7 +8,7 @@ int main()
   char raw[3];
 
   input("Enter number of terms", raw, sizeof raw);
-  terms = strtod(raw, NULL);
+  terms = atoi(raw);
 
   printf("The odd number are: ");
   for (int i = 1; i <= (terms * 2); i++)
