@@ -3,18 +3,17 @@ CFLAGS=-Wall -Werror -Iinclude
 BUILD_DIR = build
 
 .PHONY: all
-all: dirs hello-world
-
-.PHONY: dirs
-dirs: clean
-	mkdir build
+all: clean $(BUILD_DIR)/hello-world $(BUILD_DIR)/bonussy $(BUILD_DIR)/temp-converter $(BUILD_DIR)/bmi
 
 .PHONY: clean
 clean:
-	rm -rf build
+	@rm -vrf build/*
 
-%: $(BUILD_DIR)/common.o $(BUILD_DIR)/%.o
-	$(CC) $(CFLAGS) -o $(BUILD_DIR)/$@ $^
+$(BUILD_DIR)/%: $(BUILD_DIR)/%.o $(BUILD_DIR)/libcommon.so
+	$(CC) $(CFLAGS) -Wl,-rpath=. -Lbuild -lcommon -o $@ $<
+
+$(BUILD_DIR)/lib%.so: src/%.c
+	$(CC) $(CFLAGS) -fPIC -shared -o $@ $< -lc
 
 $(BUILD_DIR)/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
