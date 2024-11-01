@@ -8,6 +8,6 @@ This function appends a `:` to `prompt` before printing
 int input(char *prompt, char *output, size_t output_size);
 
 /*
-Squares a float and returns it
+Calculates the square of a float and returns it
 */
 float fsqr(float input);
