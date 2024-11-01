@@ -11,15 +11,26 @@
 int main()
 {
   float height, weight, bmi;
-  char name[NAME_SIZE], raw[RAW_BUFFER_SIZE];
+  char name[NAME_SIZE], raw[RAW_BUFFER_SIZE], *last_char;
 
   input("Enter name", name, NAME_SIZE);
 
   input("Enter height in cm", raw, RAW_BUFFER_SIZE);
-  height = strtod(raw, NULL) / 100; // convert to cm
+  height = strtod(raw, &last_char) / 100;
+  if (last_char == raw || *last_char != '\0')
+  {
+    printf("Invalid input: %s\n", last_char);
+    return -1;
+  }
 
   input("Enter weight in kg", raw, RAW_BUFFER_SIZE);
-  weight = strtod(raw, NULL);
+  weight = strtod(raw, &last_char);
+
+  if (last_char == raw || *last_char != '\0')
+  {
+    printf("Invalid input: %s\n", last_char);
+    return -1;
+  }
 
   bmi = weight / fsqr(height);
 
