@@ -16,3 +16,8 @@ int input(char *prompt, char *output, size_t output_size)
 
   return 0;
 }
+
+float fsqr(float input)
+{
+  return input * input;
+}

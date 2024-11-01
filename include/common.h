@@ -6,3 +6,8 @@ Fetches user input with `prompt` from stdin and returns it to `output` without t
 This function appends a `:` to `prompt` before printing
 */
 int input(char *prompt, char *output, size_t output_size);
+
+/*
+Squares a float and returns it
+*/
+float fsqr(float input);

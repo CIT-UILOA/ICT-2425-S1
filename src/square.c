@@ -14,7 +14,7 @@ int main()
       return 0;
 
     num = strtod(raw_num, NULL);
-    squared = num * num;
+    squared = fsqr(num);
 
     printf("%f² is %f\n", num, squared);
   }

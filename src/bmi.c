@@ -21,7 +21,7 @@ int main()
   input("Enter weight in kg", raw, RAW_BUFFER_SIZE);
   weight = strtod(raw, NULL);
 
-  bmi = weight / (height * height);
+  bmi = weight / fsqr(height);
 
   printf("Output:\n\tName: %s\n\tHeight: %.2f\n\tWeight: %.2f\n\tBMI: %.1f\n", name, height, weight, bmi);
 }
